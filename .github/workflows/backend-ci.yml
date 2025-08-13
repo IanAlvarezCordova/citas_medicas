@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-      - local-development # Add your new branch
+      - local # Add your new branch
   pull_request:
     branches:
       - main
-      - local-development
+      - local
 
 jobs:
   test-and-build:
