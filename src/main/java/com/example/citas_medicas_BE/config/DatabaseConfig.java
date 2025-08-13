@@ -1,4 +1,4 @@
-package com.example.gestion_academica.config;
+package com.example.citas_medicas_BE.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
