@@ -1,3 +1,4 @@
+//File: /src/main/java/com/example/citas_medicas_BE/modelos/Medico.java
 package com.example.citas_medicas_BE.modelos;
 
 import jakarta.persistence.*;
