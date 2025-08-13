@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - local-development # Add your new branch
   pull_request:
     branches:
       - main
+      - local-development
 
 jobs:
   test-and-build:
@@ -34,7 +36,7 @@ jobs:
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '21' # Changed from 17 to 21
+          java-version: '21'
           distribution: 'temurin'
 
       - name: Cache Maven dependencies
@@ -46,10 +48,8 @@ jobs:
 
       - name: Run tests
         env:
-          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/citas_medicas
-          SPRING_DATASOURCE_USERNAME: postgres
-          SPRING_DATASOURCE_PASSWORD: admin
+          DATABASE_URL: postgresql://postgres:admin@localhost:5432/citas_medicas
         run: mvn -B test
 
       - name: Build JAR
-        run: mvn -B package -DskipTests # Build without re-running tests
+        run: mvn -B package -DskipTests
